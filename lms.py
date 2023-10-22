@@ -474,6 +474,65 @@ class LibraryManagementSystem:
             messagebox.showinfo("Issued Books", f"Issued Books:\n{book_list}")
         else:
             messagebox.showinfo("Issued Books", "No books have been issued.")
+    def return_book(self):
+        return_dialog = tk.Toplevel(self.root)
+        return_dialog.title("Return Book")
+
+        # Create labels and entry fields for member details
+        tk.Label(return_dialog, text="Member Details:").pack()
+        member_name_label = tk.Label(return_dialog, text="Member Name:")
+        member_name_label.pack()
+        member_name_entry = tk.Entry(return_dialog)
+        member_name_entry.pack()
+
+        roll_number_label = tk.Label(return_dialog, text="Roll Number:")
+        roll_number_label.pack()
+        roll_number_entry = tk.Entry(return_dialog)
+        roll_number_entry.pack()
+
+        department_label = tk.Label(return_dialog, text="Department:")
+        department_label.pack()
+        department_entry = tk.Entry(return_dialog)
+        department_entry.pack()
+
+        # Create labels and entry fields for book details
+        tk.Label(return_dialog, text="Book Details:").pack()
+        book_title_label = tk.Label(return_dialog, text="Book Title:")
+        book_title_label.pack()
+        book_title_entry = tk.Entry(return_dialog)
+        book_title_entry.pack()
+
+        author_name_label = tk.Label(return_dialog, text="Author Name:")
+        author_name_label.pack()
+        author_name_entry = tk.Entry(return_dialog)
+        author_name_entry.pack()
+
+        return_button = tk.Button(return_dialog, text="Return Book", command=lambda: self.perform_return_book(member_name_entry.get(), roll_number_entry.get(), department_entry.get(), book_title_entry.get(), author_name_entry.get(), return_dialog))
+        return_button.pack()
+
+    def perform_return_book(self, member_name, roll_number, department, book_title, author_name, dialog):
+        if member_name and roll_number and department and book_title and author_name:
+            for member in self.members:
+                if len(member) >= 3 and member[0] == member_name and member[1] == roll_number and member[2] == department:
+                    for book in self.issued_books:
+                        if len(book) >= 4 and book[0] == book_title and book[1] == author_name and book[3]>=0 :
+                            book[3] = str(int(book[3]) + 1)  # Increment the total number of available books
+                            messagebox.showinfo("Book returned successfully")
+                            dialog.destroy()
+                            # return
+                            # Create a record of the issued book
+                            # returned_book = [book_title, author_name, member_name]
+                            # self.returned_books.append(returned_book)
+
+                            # self.save_data()
+                            # self.display_books()
+                            
+                    messagebox.showinfo("Return Book", "This book was returned earlier.")
+                    return
+                messagebox.showinfo("Return Book", "Member not found with the provided details.")
+        else:
+            messagebox.showinfo("Invalid Input", "Please provide all member and book information.")
+
 
 
 if __name__ == "__main__":
