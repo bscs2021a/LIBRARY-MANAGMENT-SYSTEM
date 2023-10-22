@@ -1,31 +1,17 @@
-Acknowledgement:
-
-we would like to extend special thanks to my teacher Sonia Safeer who gave me the golden opportunity to do
-this wonderful project of Library Management System which helped me to do a lot of research and I came
-to know about it. ۔ Lots of new stuff.
-Abstract:
-The framework Management System is a Python application built with the Tkinter framework that aims to
-make it easier to manage library resources such as library users and books. This system provides a userfriendly graphical interface for administrators to undertake various library administration activities. The
+Group Members:
+Name:Hajra  Roll. NO:BSCS_2021_34               Name:Saisha           Roll. NO:BSCS_2021_15     
+ 
+ This system provides a userfriendly graphical interface for administrators to undertake various library administration activities. The
 system's key features include the ability to add, remove, and amend member and book data, as well as the
-ability to issue and track books issued to library members. Data is stored in CSV files indefinitely, assuring
-the lifetime of the library's data. Access to administrative functions is controlled by a login mechanism that
+ability to issue and track books issued to library members. Data is stored in CSV files indefinitely. Access to administrative functions is controlled by a login mechanism that
 allows just the username "admin" and the password "123" to be used. To preserve data integrity, the system
 enforces input validation, preventing the inclusion of duplicate members or books with the same details.
 This manual provides a thorough description of the system's features, operations, and limitations, allowing
 for effective library resource management.
 Implementation:
-The Library Management System, developed in Python with Tkinter, features a user-friendly graphical
-interface. It includes admin login authentication, data storage in CSV files, and data validation. Key
-functionalities encompass member and book management, book issuance, and data display, with a focus on
-preventing duplicate records and ensuring data persistence.
 Library Management System:
 For frontend method, I used simple tkinter.
-• Login:
-This component is used for allowing users to access home page to view properties. It takes information from
-the user. If user is registered it takes user toward the main dashboard page. 
-After login, it verify the credentials of admin and then main dashboard will show.
-• Dashboard:
-It displays the information of different properties. But it can only be accessed if the user has logged in. 
+
 Functionalities:
 - The program initializes the main application window using Tkinter.
 - It sets up the color scheme and fonts for the user interface.
@@ -85,8 +71,4 @@ Restrictions
 - Duplicate members or books with the same details cannot be added.
 - Issuing a book checks for member existence, book availability, and updates the count.
 - Input validation is enforced to ensure data consistency.
-Summary
-The Library Management System is a user-friendly application that allows administrators to manage library members
-and books effectively. It provides features for adding, removing, updating, and displaying members and books, as well
-as issuing and tracking issued books. Data is saved to CSV files for data persistence, and input validation ensures data
-integrity.
+
